@@ -18,6 +18,7 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 	void Spawn ()
 	{
 		// Instantiate a random enemy.
-		Instantiate(prefab, transform.position, transform.rotation);
+		var obj = Instantiate (prefab);//, transform.position, transform.rotation);
+		((GameObject)obj).transform.parent = this.gameObject.transform;
 	}
 }

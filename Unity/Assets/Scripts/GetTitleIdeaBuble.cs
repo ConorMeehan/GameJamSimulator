@@ -69,7 +69,7 @@ public class GetTitleIdeaBuble : MonoBehaviour {
 		//If the button is pressed, go back to 41 Post  
 		if(GUI.Button(new Rect(0,0,bubbleWidth,bubbleHeight),"Back to post..."))  
 		{  
-			Application.OpenURL("http://www.41post.com/?p=4123");  
+			Destroy(this.gameObject);
 		}  
 		
 		GUI.EndGroup();  
