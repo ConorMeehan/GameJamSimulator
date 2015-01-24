@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class GameTitleIdeaSpawner : MonoBehaviour {
 
-	private float spawnTime = 5.0f+(RandomGenerator.Next() % 100)/40.0f;		// The amount of time between each spawn.
-	private float spawnDelay = (RandomGenerator.Next() % 100)/10.0f;		// The amount of time before spawning starts.
+	private float spawnTime = 8.0f+(RandomGenerator.Next() % 100)/40.0f;		// The amount of time between each spawn.
+	private float spawnDelay = 3.0f;		// The amount of time before spawning starts.
 	public GameObject prefab;		// Array of enemy prefabs.
 
 	void Start ()
@@ -23,8 +23,11 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 		obj.transform.parent = this.gameObject.transform;
 		var bubble = (ProjectIdeasStats)obj.GetComponentInChildren (typeof(ProjectIdeasStats));
 		bubble.projectName = title.Title;
+		bubble.artDifficulty = title.RequiredSkills.ArtSkill;
+		bubble.audioDifficulty = title.RequiredSkills.AudioSkill;
+		bubble.codingDifficulty = title.RequiredSkills.CodingSkill;
+		bubble.writingDifficulty = title.RequiredSkills.WritingSkill;
 		bubble.UpdateProperties ();
-
 	}
 }
 public static class RandomGenerator
