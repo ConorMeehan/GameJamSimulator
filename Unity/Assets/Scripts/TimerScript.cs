@@ -20,6 +20,8 @@ public class TimerScript : MonoBehaviour {
 
 	public Slider timeSlider;
 
+	public static bool isLevelStartedYet = true;
+
 	void Awake()
 	{
 		//this code makes the timer a Singleton. You can place it in any scene and it'll persist into the next
@@ -40,7 +42,7 @@ public class TimerScript : MonoBehaviour {
 	void Start () 
 	{
 		timeRemaining = timeRemainingAtSceneStart * 60 * 60; //converting hours into seconds for Unity
-		timeSlider.direction = Slider.Direction.LeftToRight;
+		timeSlider.direction = Slider.Direction.RightToLeft;
 		timeSlider.maxValue = timeRemaining;
 	}
 	

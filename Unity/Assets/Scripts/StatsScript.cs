@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class StatsScript : MonoBehaviour {
 
+	bool isLevelStartedYet = true;
+
 	public char gender = 'm';
 
 	public float codingSkill;
@@ -16,7 +18,12 @@ public class StatsScript : MonoBehaviour {
 	float maximumSkillPoints = 90;
 
 	float skillPointsForMe = 60f; //just a default value
-	float skillPointsLeftToAssign;
+	float skillPointsLeftToAssign;  
+
+
+	void Awake()
+	{
+	}
 
 
 	void Start () 
@@ -50,10 +57,18 @@ public class StatsScript : MonoBehaviour {
 
 	}
 
+	void Update()
+	{
+		isLevelStartedYet = TimerScript.isLevelStartedYet;
+	}
+
 	void OnMouseDown()
 	{
-		print ("Hi! My Skills are: "+skillPointsForMe+" = "+ codingSkill+" "+ artSkill+" "+ audioSkill+" "+ writingSkill);
-		gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
+		if(isLevelStartedYet == true)
+		{
+			print ("Hi! My Skills are: "+skillPointsForMe+" = "+ codingSkill+" "+ artSkill+" "+ audioSkill+" "+ writingSkill);
+			gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
+		}
 	}
 
 	public void AddToTeam()
