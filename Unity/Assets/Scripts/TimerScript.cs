@@ -51,8 +51,9 @@ public class TimerScript : MonoBehaviour {
 		timeRemaining = timeRemaining - (Time.deltaTime*timePassingRate*60);
 		timerTextString = ((timeRemaining / 3600).ToString("F"));//
 		timerText.text = timerTextString + " hrs";
-		Debug.Log ("timerTextString: " + timerTextString);
 		if (timeSlider != null)
-			timeSlider.value = float.Parse(timerTextString);
+		{
+			timeSlider.value = timeRemaining;
+		}
 	}
 }//end of MonoBehaviour bracket
