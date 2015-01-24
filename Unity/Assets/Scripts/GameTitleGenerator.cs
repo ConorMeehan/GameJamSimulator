@@ -1,14 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class GameTitleGenerator {
+﻿public class GameTitleGenerator {
 
 	public static readonly GameTitle[] Settings = new GameTitle[]{
 		new GameTitle("", new SkillSet()),
 		new GameTitle("Fantasy", new SkillSet()),
 		new GameTitle("Medieval Heroic Cult", new SkillSet()),
 		new GameTitle("Romantic", new SkillSet()),
-		new GameTitle("Horror", new SkillSet() { WritingSkill = GameSkill.Get(0.5)}),
+		new GameTitle("Horror", new SkillSet() { WritingSkill = SkillSet.Get(0.5f)}),
 		new GameTitle("Post-Apocalyptic", new SkillSet()),
 		new GameTitle("Space Opera", new SkillSet()),
 	};

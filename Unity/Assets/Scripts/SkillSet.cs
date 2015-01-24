@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class SkillSet {
+﻿public class SkillSet {
 	public const float MinSkillValue = 0;
 	public const float MaxSkillValue = 100;
 
