@@ -16,6 +16,7 @@ public class TimerScript : MonoBehaviour {
 	public float timeRemaining; //the time that'll be displayed on the clock. don't need to edit
 
 	public Text timerText;
+	private string timerTextString;
 
 	public Slider timeSlider;
 
@@ -39,6 +40,8 @@ public class TimerScript : MonoBehaviour {
 	void Start () 
 	{
 		timeRemaining = timeRemainingAtSceneStart * 60 * 60; //converting hours into seconds for Unity
+		timeSlider.direction = Slider.Direction.LeftToRight;
+		timeSlider.maxValue = timeRemaining;
 	}
 	
 	// Update is called once per frame
@@ -46,8 +49,9 @@ public class TimerScript : MonoBehaviour {
 	{
 		//countdown
 		timeRemaining = timeRemaining - (Time.deltaTime*timePassingRate*60);
-		timerText.text = ((timeRemaining /3600).ToString("F")) + " hrs";
-		timeSlider.value = timeRemaining;
+		timerTextString = ((timeRemaining / 3600).ToString("F"));//
+		timerText.text = timerTextString + " hrs";
+		Debug.Log ("timerTextString: " + timerTextString);
+		timeSlider.value = float.Parse(timerTextString);
 	}
-	
 }//end of MonoBehaviour bracket
