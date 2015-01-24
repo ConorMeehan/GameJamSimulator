@@ -17,16 +17,13 @@ public class GetTitleIdeaBuble : MonoBehaviour {
 	
 	//an offset, to better position the bubble  
 	public float offsetX = 0;  
-	public float offsetY = 150;  
+	public float offsetY = 0;  
 	
 	//an offset to center the bubble  
 	private int centerOffsetX;  
 	private int centerOffsetY;  
 	
-	//a material to render the triangular part of the speech balloon  
-	public Material mat;  
-	//a guiSkin, to render the round part of the speech balloon  
-	public GUISkin guiSkin;  
+
 	
 	//use this for early initialization  
 	void Awake ()  
@@ -38,19 +35,7 @@ public class GetTitleIdeaBuble : MonoBehaviour {
 	//use this for initialization  
 	void Start()  
 	{  
-		//if the material hasn't been found  
-		if (!mat)  
-		{  
-			Debug.LogError("Please assign a material on the Inspector.");  
-			return;  
-		}  
-		
-		//if the guiSkin hasn't been found  
-		if (!guiSkin)  
-		{  
-			Debug.LogError("Please assign a GUI Skin on the Inspector.");  
-			return;  
-		}  
+
 		
 		//Calculate the X and Y offsets to center the speech balloon exactly on the center of the game object  
 		centerOffsetX = bubbleWidth/2;  
@@ -90,28 +75,5 @@ public class GetTitleIdeaBuble : MonoBehaviour {
 		GUI.EndGroup();  
 	}  
 	
-	//Called after camera has finished rendering the scene  
-	void OnRenderObject()  
-	{  
-		//push current matrix into the matrix stack  
-		GL.PushMatrix();  
-		//set material pass  
-		mat.SetPass(0);  
-		//load orthogonal projection matrix  
-		GL.LoadOrtho();  
-		//a triangle primitive is going to be rendered  
-		GL.Begin(GL.TRIANGLES);  
-		
-		//set the color  
-		GL.Color(Color.white);  
-		
-		//Define the triangle vetices  
-		GL.Vertex3(goViewportPos.x, goViewportPos.y+(offsetY/3)/Screen.height, 0.1f);  
-		GL.Vertex3(goViewportPos.x - (bubbleWidth/3)/(float)Screen.width, goViewportPos.y+offsetY/Screen.height, 0.1f);  
-		GL.Vertex3(goViewportPos.x - (bubbleWidth/8)/(float)Screen.width, goViewportPos.y+offsetY/Screen.height, 0.1f);  
-		
-		GL.End();  
-		//pop the orthogonal matrix from the stack  
-		GL.PopMatrix();  
-	} 
+
 }

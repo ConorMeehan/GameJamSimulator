@@ -4,7 +4,7 @@ using System.Collections;
 public class GameTitleIdeaSpawner : MonoBehaviour {
 
 	public float spawnTime = 5f;		// The amount of time between each spawn.
-	public float spawnDelay = 3f;		// The amount of time before spawning starts.
+	public float spawnDelay = 1f;		// The amount of time before spawning starts.
 	public GameObject prefab;		// Array of enemy prefabs.
 	
 	
