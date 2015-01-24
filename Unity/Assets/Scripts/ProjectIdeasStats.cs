@@ -37,5 +37,13 @@ public class ProjectIdeasStats : MonoBehaviour {
 		DontDestroyOnLoad (this.gameObject);
 		transform.position = new Vector2 (6f, -3.71f); //to move this to the bottom right of screen for round 3
 		GetComponent<Animator> ().enabled = false; //to stop the animator happening
+		Time.timeScale = 0;
+
+		//TODO: create a button, then activate it here. The button can call nextlevel by calling the function below
+	}
+
+	public void LoadLevel3()
+	{
+		//TODO;Application.LoadLevel(//string or int));
 	}
 }
