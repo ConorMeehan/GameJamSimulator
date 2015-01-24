@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using AssemblyCSharp;
 
 public class StatsScript : MonoBehaviour {
+
+	public char gender = 'm';
 
 	public float codingSkill;
 	public float artSkill;
@@ -18,6 +21,14 @@ public class StatsScript : MonoBehaviour {
 	void Start () 
 	{
 		SetStatsAtBeginning ();
+		
+		if( Random.Range(0,1) < 1 )
+		{
+			gender = 'f';
+		}
+
+		NameGenerator ng = NameGenerator.Instance;
+		name = ng.getRandomName(gender);
 	}
 
 	void SetStatsAtBeginning()
