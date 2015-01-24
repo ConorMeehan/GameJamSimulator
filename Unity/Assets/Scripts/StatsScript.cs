@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using UnityEngine.UI;
 
 public class StatsScript : MonoBehaviour {
 
@@ -46,12 +47,13 @@ public class StatsScript : MonoBehaviour {
 		skillPointsLeftToAssign -= audioSkill;
 		
 		writingSkill = skillPointsLeftToAssign; //gets whatever's left
-		
+
 	}
 
 	void OnMouseDown()
 	{
 		print ("Hi! My Skills are: "+skillPointsForMe+" = "+ codingSkill+" "+ artSkill+" "+ audioSkill+" "+ writingSkill);
+		gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 	}
 
 	public void AddToTeam()
