@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,11 @@ public class TeamScript : MonoBehaviour {
 	public static TeamScript teamScript;
 
 	public List<GameObject> teamMemberList;
+
+	public Slider codeSkillSlider;
+	public Slider artSkillSlider;
+	public Slider audioSkillSlider;
+	public Slider writingSkillSlider;
 
 
 	void Awake()
