@@ -9,7 +9,11 @@ public class Level1Manager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+		if(Input.GetKeyDown(KeyCode.T))
+		{
+			Application.LoadLevel("testScene-Kevin");
+		}
 	}
 }
