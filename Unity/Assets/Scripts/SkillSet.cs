@@ -50,21 +50,22 @@ public class SkillSet {
 		}
 	}
 
-    public static class ExtensionMethods
-    {
-        public static SkillSet Sum(this IEnumerable<SkillSet> set)
-        {
-            var res = new SkillSet();
-            foreach (SkillSet skills in set)
-            {
-                res.ArtSkill += skills.ArtSkill;
-                res.AudioSkill += skills.AudioSkill;
-                res.CodingSkill += skills.CodingSkill;
-                res.WritingSkill += skills.WritingSkill;
-            }
-            return res;
-        }
-    }
+    
 }
 
 
+public static class SkillSetExtensionMethods
+{
+    public static SkillSet Sum(this IEnumerable<SkillSet> set)
+    {
+        var res = new SkillSet();
+        foreach (SkillSet skills in set)
+        {
+            res.ArtSkill += skills.ArtSkill;
+            res.AudioSkill += skills.AudioSkill;
+            res.CodingSkill += skills.CodingSkill;
+            res.WritingSkill += skills.WritingSkill;
+        }
+        return res;
+    }
+}

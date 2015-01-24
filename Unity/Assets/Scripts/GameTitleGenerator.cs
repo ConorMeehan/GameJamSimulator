@@ -30,4 +30,8 @@
 		new GameTitle("Strategy", new SkillSet()),
 		new GameTitle("Tower Defense", new SkillSet()),
 	};
+
+    public static readonly GameTitle[] Envionments = new GameTitle[]{
+        new GameTitle("Victorian Era", new SkillSet()),
+    };
 }
