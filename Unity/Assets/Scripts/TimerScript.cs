@@ -17,6 +17,7 @@ public class TimerScript : MonoBehaviour {
 
 	public Text timerText;
 
+	public Slider timeSlider;
 
 	void Awake()
 	{
@@ -46,6 +47,7 @@ public class TimerScript : MonoBehaviour {
 		//countdown
 		timeRemaining = timeRemaining - (Time.deltaTime*timePassingRate*60);
 		timerText.text = ((timeRemaining /3600).ToString("F")) + " hrs";
+		timeSlider.value = timeRemaining;
 	}
 	
 }//end of MonoBehaviour bracket
