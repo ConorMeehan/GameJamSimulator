@@ -23,7 +23,11 @@ public class GetTitleIdeaBuble : MonoBehaviour {
 	private int centerOffsetX;  
 	private int centerOffsetY;  
 	
-
+	private float animationProgress;
+	public float AnimationProgress {
+		get{ return animationProgress; }
+		set{ animationProgress = value;}
+	}
 	
 	//use this for early initialization  
 	void Awake ()  
