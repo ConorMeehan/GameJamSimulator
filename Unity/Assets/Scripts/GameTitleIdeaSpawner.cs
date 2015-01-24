@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameTitleIdeaSpawner : MonoBehaviour {
 
@@ -17,8 +18,13 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 	void Spawn ()
 	{
 		// Instantiate a random enemy.
-		var obj = Instantiate (prefab);//, transform.position, transform.rotation);
-		((GameObject)obj).transform.parent = this.gameObject.transform;
+		var obj = (GameObject)Instantiate (prefab);//, transform.position, transform.rotation);
+		var title = GameTitleGenerator.Generate ();
+		obj.transform.parent = this.gameObject.transform;
+		var bubble = (ProjectIdeasStats)obj.GetComponentInChildren (typeof(ProjectIdeasStats));
+		bubble.projectName = title.Title;
+		bubble.UpdateProperties ();
+
 	}
 }
 public static class RandomGenerator

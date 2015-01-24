@@ -1,4 +1,8 @@
-﻿public class GameTitleGenerator {
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class GameTitleGenerator {
 
 	public static readonly GameTitle[] Settings = new GameTitle[]{
 		new GameTitle("", new SkillSet()),
@@ -31,7 +35,20 @@
 		new GameTitle("Tower Defense", new SkillSet()),
 	};
 
+
+	static GameTitle game = new GameTitle ("game in ", new SkillSet ());
+
     public static readonly GameTitle[] Envionments = new GameTitle[]{
         new GameTitle("Victorian Era", new SkillSet()),
     };
+
+	public static GameTitle Generate()
+	{
+		var list = new List<GameTitle>(6);
+		list.Add (Settings [(int)Random.Range (0, Settings.Length)]);
+		list.Add (Genres [(int)Random.Range (0, Genres.Length)]);
+		list.Add (game);
+		list.Add (Envionments [(int)Random.Range (0, Envionments.Length)]);
+		return new GameTitle(string.Join(" ", list.Select(_=>_.Title).ToArray ()), list.Select(_=>_.RequiredSkills).Sum());
+	}
 }

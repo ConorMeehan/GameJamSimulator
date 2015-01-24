@@ -16,15 +16,19 @@ public class ProjectIdeasStats : MonoBehaviour {
 	public float audioDifficulty;
 	public float writingDifficulty;
 
-
-	// Use this for initialization
-	void Start () 
+	public void UpdateProperties()
 	{
 		projectTitle.text = projectName;
 		codingDifficultySlider.value = codingDifficulty;
 		artDifficultySlider.value = artDifficulty;
 		audioDifficultySlider.value = audioDifficulty;
 		writingDifficultySlider.value = writingDifficulty;
+	}
+
+	// Use this for initialization
+	void Start () 
+	{
+		UpdateProperties ();
 	}
 
 	// for if this is the project the player chooses by letting it reach the finish line
