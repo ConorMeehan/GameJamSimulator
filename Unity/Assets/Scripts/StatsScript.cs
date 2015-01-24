@@ -66,14 +66,15 @@ public class StatsScript : MonoBehaviour {
 	{
 		if(isLevelStartedYet == true)
 		{
-			print ("Hi! My Skills are: "+skillPointsForMe+" = "+ codingSkill+" "+ artSkill+" "+ audioSkill+" "+ writingSkill);
+			//print ("Hi! My Skills are: "+skillPointsForMe+" = "+ codingSkill+" "+ artSkill+" "+ audioSkill+" "+ writingSkill);
 			gameObject.transform.GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).gameObject.activeSelf);
 		}
 	}
 
 	public void AddToTeam()
 	{
-		//add to TEAM GameObject
+		//transform.SetParent (GameObject.FindGameObjectWithTag ("Team").transform);
+		GameObject.FindGameObjectWithTag ("Team").GetComponent<TeamScript> ().AddTeamMember (this.gameObject);
 	}
 
 	public void NoThanks()
