@@ -27,8 +27,9 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 		if (buttons != null) {
 			foreach (Button button in buttons)
 			{
-						button.onClick.AddListener (() => {
-								Destroy (obj);});
+				button.onClick.AddListener (() => {
+					Destroy (obj);
+				});
 			}
 		}
 
