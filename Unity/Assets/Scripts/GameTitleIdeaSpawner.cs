@@ -4,8 +4,8 @@ using System.Collections;
 public class GameTitleIdeaSpawner : MonoBehaviour {
 
 	public float spawnTime = 5f;		// The amount of time between each spawn.
-	public float spawnDelay = 3f;		// The amount of time before spawning starts.
-	public GameObject[] enemies;		// Array of enemy prefabs.
+	public float spawnDelay = 1f;		// The amount of time before spawning starts.
+	public GameObject prefab;		// Array of enemy prefabs.
 	
 	
 	void Start ()
@@ -18,7 +18,7 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 	void Spawn ()
 	{
 		// Instantiate a random enemy.
-		int enemyIndex = Random.Range(0, enemies.Length);
-		Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
+		var obj = Instantiate (prefab);//, transform.position, transform.rotation);
+		((GameObject)obj).transform.parent = this.gameObject.transform;
 	}
 }

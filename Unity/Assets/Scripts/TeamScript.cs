@@ -35,6 +35,34 @@ public class TeamScript : MonoBehaviour {
 	{
 		member.transform.SetParent (this.gameObject.transform);
 		teamMemberList.Add (member);
+		UpdateSLider ();
+	}
+
+	public void UpdateSLider()
+	{
+		float artSkillTotal = 0;
+		float audioSkillTotal = 0;
+		float codingSkillTotal = 0;
+		float writingSkillTotal = 0;
+
+		var numberOfTeamMembers = teamMemberList.Count; 
+
+		foreach (GameObject name in teamMemberList) 
+		{
+
+			StatsScript temp = name.GetComponent<StatsScript> ();
+			artSkillTotal = temp.artSkill;
+			audioSkillTotal = temp.audioSkill;
+			codingSkillTotal = temp.codingSkill;
+			writingSkillTotal = temp.writingSkill;
+		}
+
+		codeSkillSlider.value = codingSkillTotal / numberOfTeamMembers;
+		artSkillSlider.value = artSkillTotal / numberOfTeamMembers;
+		audioSkillSlider.value = audioSkillTotal / numberOfTeamMembers;
+		writingSkillSlider.value = writingSkillTotal / numberOfTeamMembers;
+
+
 	}
 
 }
