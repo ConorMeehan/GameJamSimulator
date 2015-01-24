@@ -36,7 +36,20 @@ public class StatsScript : MonoBehaviour {
 		
 		writingSkill = skillPointsLeftToAssign; //gets whatever's left
 		
-		Debug.Log (skillPointsForMe+" = "+ codingSkill+" "+ artSkill+" "+ audioSkill+" "+ writingSkill);
 	}
 
+	void OnMouseDown()
+	{
+		print ("Hi! My Skills are: "+skillPointsForMe+" = "+ codingSkill+" "+ artSkill+" "+ audioSkill+" "+ writingSkill);
+	}
+
+	public void AddToTeam()
+	{
+		//add to TEAM GameObject
+	}
+
+	public void NoThanks()
+	{
+		//close the UI box
+	}
 }//end of Mono bracket
