@@ -26,9 +26,12 @@ public class ProjectIdeasStats : MonoBehaviour {
 		audioDifficultySlider.value = audioDifficulty;
 		writingDifficultySlider.value = writingDifficulty;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	// for if this is the project the player chooses by letting it reach the finish line
+	public void WinRound2Function()
+	{
+		DontDestroyOnLoad (this.gameObject);
+		transform.position = new Vector2 (6f, -3.71f); //to move this to the bottom right of screen for round 3
+		GetComponent<Animator> ().enabled = false; //to stop the animator happening
 	}
 }
