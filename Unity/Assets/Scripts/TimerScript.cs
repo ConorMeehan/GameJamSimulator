@@ -39,6 +39,8 @@ public class TimerScript : MonoBehaviour {
 	void Start () 
 	{
 		timeRemaining = timeRemainingAtSceneStart * 60 * 60; //converting hours into seconds for Unity
+		timeSlider.direction = Slider.Direction.LeftToRight;
+		timeSlider.maxValue = timeRemaining;
 	}
 	
 	// Update is called once per frame
