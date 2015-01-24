@@ -1,4 +1,6 @@
-﻿public class SkillSet {
+﻿using System.Collections.Generic;
+
+public class SkillSet {
 	public const float MinSkillValue = 0;
 	public const float MaxSkillValue = 100;
 
@@ -47,4 +49,22 @@
 			writingSkill = value;
 		}
 	}
+
+    public static class ExtensionMethods
+    {
+        public static SkillSet Sum(this IEnumerable<SkillSet> set)
+        {
+            var res = new SkillSet();
+            foreach (SkillSet skills in set)
+            {
+                res.ArtSkill += skills.ArtSkill;
+                res.AudioSkill += skills.AudioSkill;
+                res.CodingSkill += skills.CodingSkill;
+                res.WritingSkill += skills.WritingSkill;
+            }
+            return res;
+        }
+    }
 }
+
+
