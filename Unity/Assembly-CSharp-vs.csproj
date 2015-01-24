@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Level1Manager.cs" />
      <Compile Include="Assets\Scripts\StatsScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
  <Reference Include="UnityEngine.UI">
