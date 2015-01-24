@@ -14,6 +14,8 @@ public class TeamScript : MonoBehaviour {
 	public Slider audioSkillSlider;
 	public Slider writingSkillSlider;
 
+	public int maxMembersOnTeam = 5;
+
 
 	void Awake()
 	{
@@ -38,9 +40,13 @@ public class TeamScript : MonoBehaviour {
 
 	public void AddTeamMember(GameObject member)
 	{
-		member.transform.SetParent (this.gameObject.transform);
-		teamMemberList.Add (member);
-		UpdateSLider ();
+		if(teamMemberList.Count < maxMembersOnTeam)
+		{
+			member.transform.SetParent (this.gameObject.transform);
+			teamMemberList.Add (member);
+			UpdateSLider ();
+		}
+
 	}
 
 	public void UpdateSLider()
@@ -67,6 +73,9 @@ public class TeamScript : MonoBehaviour {
 		audioSkillSlider.value = audioSkillTotal/2f;
 		writingSkillSlider.value = writingSkillTotal/2f;
 
+		//also update the gui of total team members
+
+		GameObject.Find ("Team Members Count Text").GetComponent<Text> ().text = "Team Members: " + numberOfTeamMembers + "/" + maxMembersOnTeam;
 
 	}
 
