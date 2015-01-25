@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class GameTitleIdeaSpawner : MonoBehaviour {
 
-	private float spawnTime = 8.0f+(RandomGenerator.Next() % 100)/40.0f;		// The amount of time between each spawn.
+	private float spawnTime = 4.0f;		// The amount of time between each spawn.
 	private float spawnDelay = 1f;		// The amount of time before spawning starts.
 	public GameObject prefab;		// Array of enemy prefabs.
 	public GameObject destroyerScript;		// Array of enemy prefabs.

@@ -16,6 +16,8 @@ public class ProjectIdeasStats : MonoBehaviour {
 	public float audioDifficulty;
 	public float writingDifficulty;
 
+	public GameObject nextLevelButton;
+
 	public void UpdateProperties()
 	{
 		projectTitle.text = projectName;
@@ -37,14 +39,16 @@ public class ProjectIdeasStats : MonoBehaviour {
 		//DontDestroyOnLoad (this.gameObject);
 
 		transform.localPosition = new Vector2 (1f, -4.2f); //to move this to the bottom right of screen for round 3
+
 		//GetComponent<Animator> ().enabled = false; //to stop the animator happening
+
 		Time.timeScale = 0;
 
-		//TODO: create a button, then activate it here. The button can call nextlevel by calling the function below
+		nextLevelButton = GameObject.FindGameObjectWithTag ("NextLevelButton");
+		print (nextLevelButton);
+		nextLevelButton.transform.FindChild ("NextLevel Button").gameObject.SetActive (true);
+		nextLevelButton.SetActive (true);
 	}
 
-	public void LoadLevel3()
-	{
-		Application.LoadLevel ("3-FINISH YOUR GAME");
-	}
+
 }

@@ -29,8 +29,8 @@ public class Level2Manager : MonoBehaviour {
 		}
 	}
 
-	// Update is called once per frame
-	void Update () {
-	
+	public void LoadLevel3()
+	{
+		Application.LoadLevel ("3-FINISH YOUR GAME");
 	}
 }

@@ -31,11 +31,21 @@ public class TeamScript : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		//end of Singleton
+
 	}
 
 	void Start()
 	{
 		UpdateSLider ();
+	}
+
+	void Update()
+	{
+		if(Application.loadedLevel == 0)
+		{
+			Debug.Log("Destroying old TEAM");
+			Destroy(gameObject);
+		}
 	}
 
 	public void AddTeamMember(GameObject member)
