@@ -10,7 +10,7 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 	public GameObject prefab;		// Array of enemy prefabs.
 	public GameObject destroyerScript;		// Array of enemy prefabs.
 	public AudioClip nnnnnoSound;
-
+	public AudioClip[] howAboutSound;
 	void Start ()
 	{
 		// Start calling the Spawn function repeatedly after a delay .
@@ -24,7 +24,7 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 		var title = GameTitleGenerator.Generate ();
 		obj.transform.position= this.gameObject.transform.position;
 		obj.transform.parent = this.gameObject.transform;
-
+		gameObject.audio.PlayOneShot (howAboutSound[(int)Random.Range(0,howAboutSound.Length)]);
 		var buttons = obj.GetComponentsInChildren <Button>(true);
 		if (buttons != null) {
 			foreach (Button button in buttons)
