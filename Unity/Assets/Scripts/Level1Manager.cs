@@ -50,7 +50,7 @@ public class Level1Manager : MonoBehaviour {
 
 	public void LoadNextLevel()
 	{
-		Application.LoadLevel("testScene-Kevin");
-
+		//Application.LoadLevel("testScene-Kevin");
+		Application.LoadLevel("2-PICK YOUR GAME");
 	}
 }
