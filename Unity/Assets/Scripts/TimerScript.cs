@@ -72,6 +72,15 @@ public class TimerScript : MonoBehaviour {
 		{
 			Destroy(this.gameObject);
 		}
+
+		if(Input.GetKeyDown(KeyCode.T))
+		{
+			timePassingRate = 400;
+		}
+		if(Input.GetKeyDown(KeyCode.Y))
+		{
+			timePassingRate = 20;
+		}
 	}
 
 	public void GoToLoseScreen()

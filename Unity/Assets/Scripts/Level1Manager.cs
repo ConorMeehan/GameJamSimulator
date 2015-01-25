@@ -19,10 +19,6 @@ public class Level1Manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.GetKeyDown(KeyCode.T))
-		{
-			LoadNextLevel();
-		}
 
 		membersOnTeam = TeamScript.teamScript.teamMemberList.Count;
 
