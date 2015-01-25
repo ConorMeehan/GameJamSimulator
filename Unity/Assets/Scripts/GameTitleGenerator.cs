@@ -39,8 +39,15 @@ public class GameTitleGenerator {
 	static GameTitle game = new GameTitle ("game in ", new SkillSet ());
 
     public static readonly GameTitle[] Envionments = new GameTitle[]{
-        new GameTitle("Victorian Era", new SkillSet()),
-    };
+		new GameTitle("Victorian Era", new SkillSet(){WritingSkill = SkillSet.Get(0.5f)}),
+		new GameTitle("Nowdays", new SkillSet()),
+		new GameTitle("Wild West", new SkillSet()),
+		new GameTitle("Virtual Reality", new SkillSet()),
+		new GameTitle("Under Water", new SkillSet()),
+		new GameTitle("Space", new SkillSet()),
+		new GameTitle("Siberia", new SkillSet()),
+		new GameTitle("Kung Fu Monastery", new SkillSet()),
+	};
 
 	public static GameTitle Generate()
 	{
@@ -49,6 +56,6 @@ public class GameTitleGenerator {
 		list.Add (Genres [(int)Random.Range (0, Genres.Length)]);
 		list.Add (game);
 		list.Add (Envionments [(int)Random.Range (0, Envionments.Length)]);
-		return new GameTitle(string.Join(" ", list.Select(_=>_.Title).ToArray ()), list.Select(_=>_.RequiredSkills).Sum());
+		return new GameTitle(string.Join(" ", list.Select(_=>_.Title).ToArray ()), list.Select(_=>_.RequiredSkills).Sum().Cap(SkillSet.MaxSkillValue));
 	}
 }

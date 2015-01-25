@@ -50,7 +50,16 @@ public class SkillSet {
 		}
 	}
 
-    
+    public SkillSet Cap(float cap)
+	{
+		return new SkillSet ()
+		{
+			ArtSkill = (ArtSkill>cap)?cap:ArtSkill,
+			CodingSkill = (ArtSkill>cap)?cap:CodingSkill,
+			AudioSkill = (AudioSkill>cap)?cap:AudioSkill,
+			WritingSkill = (WritingSkill>cap)?cap:WritingSkill,
+		};
+	}
 }
 
 
