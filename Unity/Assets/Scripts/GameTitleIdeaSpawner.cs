@@ -6,9 +6,10 @@ using UnityEngine.Events;
 public class GameTitleIdeaSpawner : MonoBehaviour {
 
 	private float spawnTime = 8.0f+(RandomGenerator.Next() % 100)/40.0f;		// The amount of time between each spawn.
-	private float spawnDelay = 3.0f;		// The amount of time before spawning starts.
+	private float spawnDelay = 1f;		// The amount of time before spawning starts.
 	public GameObject prefab;		// Array of enemy prefabs.
 	public GameObject destroyerScript;		// Array of enemy prefabs.
+	public AudioClip nnnnnoSound;
 
 	void Start ()
 	{
@@ -21,6 +22,7 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 		// Instantiate a random enemy.
 		var obj = (GameObject)Instantiate (prefab);//, transform.position, transform.rotation);
 		var title = GameTitleGenerator.Generate ();
+		obj.transform.position= this.gameObject.transform.position;
 		obj.transform.parent = this.gameObject.transform;
 
 		var buttons = obj.GetComponentsInChildren <Button>(true);
@@ -28,6 +30,7 @@ public class GameTitleIdeaSpawner : MonoBehaviour {
 			foreach (Button button in buttons)
 			{
 				button.onClick.AddListener (() => {
+					gameObject.audio.PlayOneShot (nnnnnoSound);
 					Destroy (obj);
 				});
 			}

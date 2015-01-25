@@ -16,7 +16,7 @@ public class GameTitleIdeaBuble : MonoBehaviour {
 			return;
 		}
 		var worldPos = gameObject.transform.TransformPoint(Vector3.zero);
-		if (worldPos.y >= topLevel) {
+		if (worldPos.x >= topLevel) {
 			if (onReachedTop != null)
 				onReachedTop.Invoke();
 		}

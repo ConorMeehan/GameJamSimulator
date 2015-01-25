@@ -34,8 +34,9 @@ public class ProjectIdeasStats : MonoBehaviour {
 	// for if this is the project the player chooses by letting it reach the finish line
 	public void WinRound2Function()
 	{
-		DontDestroyOnLoad (this.gameObject);
-		transform.position = new Vector2 (6f, -3.71f); //to move this to the bottom right of screen for round 3
+		//DontDestroyOnLoad (this.gameObject);
+
+		transform.localPosition = new Vector2 (1f, -4.2f); //to move this to the bottom right of screen for round 3
 		//GetComponent<Animator> ().enabled = false; //to stop the animator happening
 		Time.timeScale = 0;
 
@@ -44,6 +45,6 @@ public class ProjectIdeasStats : MonoBehaviour {
 
 	public void LoadLevel3()
 	{
-		//TODO;Application.LoadLevel(//string or int));
+		Application.LoadLevel ("3-FINISH YOUR GAME");
 	}
 }
