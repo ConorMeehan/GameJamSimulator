@@ -22,6 +22,8 @@ public class TimerScript : MonoBehaviour {
 
 	public static bool isLevelStartedYet = true;
 
+	bool haveLost = false;
+
 	void Awake()
 	{
 		//this code makes the timer a Singleton. You can place it in any scene and it'll persist into the next
@@ -36,6 +38,7 @@ public class TimerScript : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		//end of Singleton
+
 	}
 
 	// Use this for initialization
@@ -44,6 +47,8 @@ public class TimerScript : MonoBehaviour {
 		timeRemaining = timeRemainingAtSceneStart * 60 * 60; //converting hours into seconds for Unity
 		timeSlider.direction = Slider.Direction.RightToLeft;
 		timeSlider.maxValue = timeRemaining;
+
+		haveLost = false;
 	}
 	
 	// Update is called once per frame
@@ -57,5 +62,27 @@ public class TimerScript : MonoBehaviour {
 		{
 			timeSlider.value = timeRemaining;
 		}
+
+		if(timeRemaining <= 0 && !haveLost)
+		{
+			GoToLoseScreen();
+		}
+
+		if(Application.loadedLevelName == "MenuScene")
+		{
+			Destroy(this.gameObject);
+		}
+	}
+
+	public void GoToLoseScreen()
+	{
+		haveLost = true;
+
+		Destroy(GameObject.FindGameObjectWithTag ("Team"));
+
+		//TODO: if there's the level 2 idea box present, delete that
+
+		Application.LoadLevel("LOSE SCENE");
+
 	}
 }//end of MonoBehaviour bracket
