@@ -75,7 +75,9 @@ public class TeamScript : MonoBehaviour {
 
 		//also update the gui of total team members
 
-		GameObject.Find ("Team Members Count Text").GetComponent<Text> ().text = "Team Members: " + numberOfTeamMembers + "/" + maxMembersOnTeam;
+		var members = GameObject.Find ("Team Members Count Text");
+		if (members != null)
+			members.GetComponent<Text> ().text = "Team Members: " + numberOfTeamMembers + "/" + maxMembersOnTeam;
 
 	}
 
